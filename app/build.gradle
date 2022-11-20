@@ -53,4 +53,6 @@ dependencies {
     kapt libraries.dagger_compiler
 
     implementation libraries.fragment_ktx
+
+    implementation libraries.junit
 }
