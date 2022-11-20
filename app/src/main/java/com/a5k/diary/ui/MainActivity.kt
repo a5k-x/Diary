@@ -7,8 +7,10 @@ import android.widget.ScrollView
 import android.widget.TextView
 import com.a5k.diary.R
 import com.a5k.diary.databinding.ActivityMainBinding
+import com.a5k.diary.domain.entity.Task
 import com.a5k.diary.ui.custom.CalendarView
 import com.a5k.diary.ui.custom.CustomeViewGroup
+import com.a5k.diary.ui.custom.TaskView
 
 class MainActivity : AppCompatActivity() {
 
@@ -19,9 +21,19 @@ class MainActivity : AppCompatActivity() {
         vb = ActivityMainBinding.inflate(layoutInflater)
         setContentView(vb?.root)
        val lin = vb?.containerMm
-        for (i in 1..24){
+        for (i in 0..23){
             lin?.addView(CalendarView(this).apply { setting(i.toString()) })
         }
+        val task = Task(id =1, date_start = 1668968932000, date_finish = 1668971858000, "Name Task", "Description task more info task")
+        val task1 = Task(id =2, date_start = 1668982858000, date_finish = 1668984490000, "Name Task", "Description task more info task")
 
+        val viewTask = TaskView(this).apply {
+            settingViewTask(task, 2400)
+        }
+        val viewTask1 = TaskView(this).apply {
+            settingViewTask(task1, 2400)
+        }
+        lin?.addView(viewTask)
+        lin?.addView(viewTask1)
     }
 }

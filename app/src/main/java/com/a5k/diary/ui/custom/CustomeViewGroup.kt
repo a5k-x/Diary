@@ -5,6 +5,8 @@ import android.util.AttributeSet
 import android.util.Log
 import android.view.MotionEvent
 import android.view.MotionEvent.ACTION_MOVE
+import android.view.View
+import android.view.ViewGroup
 import android.widget.LinearLayout
 
 class CustomeViewGroup @JvmOverloads constructor(
@@ -28,11 +30,10 @@ class CustomeViewGroup @JvmOverloads constructor(
 
         for (i in 0 until countChild ) {
             val child = getChildAt(i)
-            maxWidth += child.width
-            maxHeight += (child as CalendarView).heightLineVertical.toInt()
-            childState = combineMeasuredStates(childState, child.measuredState)
             if ((child as TypeCustomView).getType() == CustomType.CALENDAR){
-
+                maxWidth += child.width
+                maxHeight += (child as CalendarView).heightLineVertical.toInt()
+                childState = combineMeasuredStates(childState, child.measuredState)
             }
         }
         val resolveWidth = resolveSize(maxWidth, widthMeasureSpec)
@@ -55,6 +56,9 @@ class CustomeViewGroup @JvmOverloads constructor(
                 }
                 ldf += (child as CalendarView).heightLineVertical.toInt()
                 child.layout(l, ldf, r, b)
+            } else if ((child as TypeCustomView).getType() == CustomType.TASK){
+                child.id = i
+                child.layout(l, t, r, b)
             }
         }
     }
