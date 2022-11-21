@@ -17,23 +17,21 @@ class CalendarView @JvmOverloads constructor(
     // Vertical line
     private var startLineVerticalY = 0f
     private val wightTextX = 100f
-    val heightLineVertical = 100f
+    val heightLineVertical = 200f
 
     //text
     val timeTextStartX = 10f
-    var timeTextStartY = heightLineVertical / 2
 
     private var text = "12:30"
 
     // Horizontal line
-    private val startLineHorizontalX = 100f
-    private var startLineHorizontalY = heightLineVertical / 2
+    private var startLineHorizontalY = startLineVerticalY
     val longHorizontal = 500f
 
     private val linePaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
         style = Paint.Style.FILL
-        color = context.getColor(R.color.black)
-        strokeWidth = 3f
+        color = context.getColor(R.color.green)
+        strokeWidth = 6f
     }
 
     private var textPaint = TextPaint(Paint.ANTI_ALIAS_FLAG).apply {
@@ -45,9 +43,6 @@ class CalendarView @JvmOverloads constructor(
     //размеры графа
     private val contentWidth = resources.getDimensionPixelSize(R.dimen.graph_width)
     private var contentHeight = resources.getDimensionPixelSize(R.dimen.graph_height)
-
-    private val marginTopGraph = resources.getDimensionPixelSize(R.dimen.margin_top_graph)
-
 
     fun setting(text: String) {
         this.text = text
@@ -66,8 +61,7 @@ class CalendarView @JvmOverloads constructor(
     }
 
     private fun Canvas.drawTasks() {
-        val heightText = (textPaint.textSize / 3) + timeTextStartY
-        //val wightTextX = textPaint.measureText(text) + 2 * timeTextStartX
+        val heightText = textPaint.textSize
         drawText(text, timeTextStartX, heightText, textPaint)
         drawLine(wightTextX, startLineVerticalY, wightTextX, heightLineVertical, linePaint)
         drawLine(wightTextX, startLineHorizontalY, longHorizontal, startLineHorizontalY, linePaint)

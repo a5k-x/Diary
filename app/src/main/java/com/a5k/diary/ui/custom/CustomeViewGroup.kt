@@ -54,8 +54,8 @@ class CustomeViewGroup @JvmOverloads constructor(
                 child.setOnClickListener {
                     Log.d("CLICK", "CLICK FROM VIEWGROUP id = ${child.id}")
                 }
-                ldf += (child as CalendarView).heightLineVertical.toInt()
                 child.layout(l, ldf, r, b)
+                ldf += (child as CalendarView).heightLineVertical.toInt()
             } else if ((child as TypeCustomView).getType() == CustomType.TASK){
                 child.id = i
                 child.layout(l, t, r, b)

@@ -25,11 +25,20 @@ class ExampleUnitTest {
     @Test
     fun date(){
       val date = Instant.now().epochSecond
-        val dater = Instant.ofEpochSecond(date).
+        //val dater = Instant.ofEpochSecond(date).
       val time = parseTimestampToString(date, "HH:mm")
         val ter = parseTimeToMilli(time, "HH:mm")
         val result = parseToCoordinate(ter, 2400)
         var r = 0
+    }
+
+    @Test
+    fun date2(){
+        val hours = 23
+        var h = 1
+        var jh = String.format("%02d:00", hours)
+        var jk = String.format("%02d:00", h)
+        var hj = 456
     }
 
     private fun parseTimestampToString(times: Long, pattern: String): String =

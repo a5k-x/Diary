@@ -11,7 +11,7 @@ object Utill{
     fun parseTimestampToString(times: Long, pattern: String): String =
         SimpleDateFormat(pattern).format(times)
 
-    fun parseTimeToMilli(times: String, pattern: String): Int {
+    fun parseTimeToSec(times: String, pattern: String): Int {
         val time = LocalTime.parse(times, DateTimeFormatter.ofPattern(pattern))
         return ((time.hour * 3600) + (time.minute * 60))
     }
@@ -21,8 +21,8 @@ object Utill{
 
     fun getCoordinate(times: Long, pattern: String, heightView: Int ): Int{
         val time = parseTimestampToString(times, pattern)
-        val milli = parseTimeToMilli(time, pattern)
-        return parseToCoordinate(milli, heightView)
+        val sec = parseTimeToSec(time, pattern)
+        return parseToCoordinate(sec, heightView)
     }
 }
 
