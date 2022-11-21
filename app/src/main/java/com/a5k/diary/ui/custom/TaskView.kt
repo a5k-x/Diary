@@ -50,7 +50,7 @@ class TaskView @JvmOverloads constructor(
         color = context.getColor(R.color.black200)
         textSize = 37f
     }
-    private var task: Task? = null
+    var task: Task? = null
     private var heightCalendar: Int = 2400
 
     private var widthTask = 0
@@ -105,7 +105,6 @@ class TaskView @JvmOverloads constructor(
                 textTimePaint
                 )
 
-
             drawText(task!!.name,
                 startX + leftMarginTask,
                 startYCoordinateTask + heightTextTitle,
@@ -127,8 +126,6 @@ class TaskView @JvmOverloads constructor(
                     textDescriptionPaint
                 )
             }
-
-
 
             drawLine(startX,
                 startYCoordinateTask.toFloat(),

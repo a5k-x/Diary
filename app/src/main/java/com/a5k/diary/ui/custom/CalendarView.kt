@@ -17,7 +17,7 @@ class CalendarView @JvmOverloads constructor(
     // Vertical line
     private var startLineVerticalY = 0f
     private val wightTextX = 100f
-    val heightLineVertical = 200f
+    val heightLineVertical = 100f
 
     //text
     val timeTextStartX = 10f

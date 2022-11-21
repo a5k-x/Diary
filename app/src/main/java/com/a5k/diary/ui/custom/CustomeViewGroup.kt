@@ -8,6 +8,8 @@ import android.view.MotionEvent.ACTION_MOVE
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
+import com.a5k.diary.domain.entity.Task
+import com.a5k.diary.utill.Utill
 
 class CustomeViewGroup @JvmOverloads constructor(
     context: Context,
@@ -19,6 +21,8 @@ class CustomeViewGroup @JvmOverloads constructor(
 
     private var positionScroll = 0
     private var maxDeltaScroll = 0
+
+    private var arrayTask = mutableListOf<Int>()
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
        super.onMeasure(widthMeasureSpec, heightMeasureSpec)
@@ -58,8 +62,22 @@ class CustomeViewGroup @JvmOverloads constructor(
                 ldf += (child as CalendarView).heightLineVertical.toInt()
             } else if ((child as TypeCustomView).getType() == CustomType.TASK){
                 child.id = i
+                val task = (child as TaskView).task?.date_start?.let { Utill.getCoordinate(it, Utill.PATTERN_HH_MM, b) }
+                if (task != null) {
+                    arrayTask.add(task)
+                }
                 child.layout(l, t, r, b)
             }
+           /* if (arrayTask.isNotEmpty()){
+                val minTimeTask = arrayTask.min()
+                    if (minTimeTask > maxDeltaScroll){
+                        scrollTo(0, maxDeltaScroll)
+                        positionScroll = maxDeltaScroll
+                    } else {
+                        scrollTo(0, minTimeTask)
+                        maxDeltaScroll = minTimeTask
+                    }
+            }*/
         }
     }
 

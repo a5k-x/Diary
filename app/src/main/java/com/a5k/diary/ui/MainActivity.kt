@@ -24,14 +24,14 @@ class MainActivity : AppCompatActivity() {
         for (i in 0..23){
             lin?.addView(CalendarView(this).apply { setting(String.format("%02d:00", i)) })
         }
-        val task = Task(id =1, date_start = 1668968932000, date_finish = 1668971858000, "Name Task", "Description task more info task")
-        val task1 = Task(id =2, date_start = 1668982858000, date_finish = 1668984490000, "Name Task", "Description task more info task Description task more info task Description task more info task")
+        val task = Task(id =1, date_start = 1668768932000, date_finish = 1668969532000, "Name Task", "Description task more info task")
+        val task1 = Task(id =2, date_start = 1668981658000, date_finish = 1668984490000, "Name Task", "Description task more info task Description task more info task Description task more info task")
 
         val viewTask = TaskView(this).apply {
-            settingViewTask(task, 4800)
+            settingViewTask(task, 2400)
         }
         val viewTask1 = TaskView(this).apply {
-            settingViewTask(task1, 4800)
+            settingViewTask(task1, 2400)
         }
         lin?.addView(viewTask)
         lin?.addView(viewTask1)
