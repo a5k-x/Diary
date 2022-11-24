@@ -1,47 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main_layout"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.MainActivity">
 
-    <TextView
-        android:id="@+id/sdfas"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="sdfgsdfgsd"
-        android:textSize="30sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragment_container"
+        android:name="com.a5k.diary.ui.TaskFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
-     <LinearLayout
-          android:id="@+id/container_m"
-          android:layout_width="match_parent"
-          android:layout_height="0dp"
-          android:orientation="vertical"
-          app:layout_constraintBottom_toTopOf="@+id/sdfsas"
-          app:layout_constraintTop_toBottomOf="@+id/sdfas">
-         <com.a5k.diary.ui.custom.CustomeViewGroup
-             android:id="@+id/container_mm"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             android:orientation="vertical" />
-     </LinearLayout>
-
-
-
-    <TextView
-        android:id="@+id/sdfsas"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="sdfgsdfgsd"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

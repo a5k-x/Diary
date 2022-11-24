@@ -2,13 +2,12 @@ package com.a5k.diary
 
 import org.junit.Assert.assertEquals
 import org.junit.Test
-import java.sql.Time
-import java.sql.Timestamp
-import java.text.DateFormat
 import java.text.SimpleDateFormat
-import java.time.*
+import java.time.Instant
+import java.time.LocalDate
+import java.time.LocalTime
+import java.time.OffsetDateTime
 import java.time.format.DateTimeFormatter
-import java.util.logging.SimpleFormatter
 
 
 /**
@@ -49,8 +48,13 @@ class ExampleUnitTest {
         return ((time.hour * 3600) + (time.minute * 60))
     }
 
-    private fun parseToCoordinate(time: Int, heightView: Int): Int
-    = (heightView * time) / 86_400
+    private fun parseToCoordinate(time: Int, heightView: Int): Int = (heightView * time) / 86_400
+
+    private fun parseTimeAndDateToTimestamp(time: String, date: String, patternTime: String, patternDate: String): Long {
+        val times = LocalTime.parse(time, DateTimeFormatter.ofPattern(patternTime))
+        val dates = LocalDate.parse(date, DateTimeFormatter.ofPattern(patternDate))
+        return times.toEpochSecond(dates, OffsetDateTime.now().offset)
+    }
 
 
 }

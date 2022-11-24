@@ -74,12 +74,12 @@ class TaskView @JvmOverloads constructor(
 
     private fun Canvas.drawTasks() {
         if (task != null) {
-            val startYCoordinateTask = Utill.getCoordinate(task!!.date_start, pattern = Utill.PATTERN_HH_MM, heightCalendar)
-            val endYCoordinateTask = Utill.getCoordinate(task!!.date_finish, pattern = Utill.PATTERN_HH_MM, heightCalendar)
+            val startYCoordinateTask = Utill.getCoordinate(task!!.date_start, pattern = Utill.TIME_PATTERN, heightCalendar)
+            val endYCoordinateTask = Utill.getCoordinate(task!!.date_finish, pattern = Utill.TIME_PATTERN, heightCalendar)
             val heightTextTitle = textPaint.textSize
 
-            val startTime = Utill.parseTimestampToString(task!!.date_start, pattern = Utill.PATTERN_HH_MM)
-            val endTime = Utill.parseTimestampToString(task!!.date_finish, pattern = Utill.PATTERN_HH_MM)
+            val startTime = Utill.parseTimestampToString(task!!.date_start, pattern = Utill.TIME_PATTERN)
+            val endTime = Utill.parseTimestampToString(task!!.date_finish, pattern = Utill.TIME_PATTERN)
 
             val heightTextTime = textTimePaint.textSize
             val measureTextTime = textTimePaint.measureText(startTime)

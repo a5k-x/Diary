@@ -5,10 +5,7 @@ import android.util.AttributeSet
 import android.util.Log
 import android.view.MotionEvent
 import android.view.MotionEvent.ACTION_MOVE
-import android.view.View
-import android.view.ViewGroup
 import android.widget.LinearLayout
-import com.a5k.diary.domain.entity.Task
 import com.a5k.diary.utill.Utill
 
 class CustomeViewGroup @JvmOverloads constructor(
@@ -62,7 +59,7 @@ class CustomeViewGroup @JvmOverloads constructor(
                 ldf += (child as CalendarView).heightLineVertical.toInt()
             } else if ((child as TypeCustomView).getType() == CustomType.TASK){
                 child.id = i
-                val task = (child as TaskView).task?.date_start?.let { Utill.getCoordinate(it, Utill.PATTERN_HH_MM, b) }
+                val task = (child as TaskView).task?.date_start?.let { Utill.getCoordinate(it, Utill.TIME_PATTERN, b) }
                 if (task != null) {
                     arrayTask.add(task)
                 }
