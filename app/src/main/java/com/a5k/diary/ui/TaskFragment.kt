@@ -12,6 +12,9 @@ import com.a5k.diary.ui.custom.CalendarView
 import com.a5k.diary.ui.custom.TaskView
 import com.a5k.diary.utill.Utill
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import java.time.LocalDate
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
 class TaskFragment : Fragment() {
 
@@ -33,6 +36,7 @@ class TaskFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setListener()
+        vb?.currentDate?.text = LocalDate.now().format(DateTimeFormatter.ofPattern(Utill.DATE_PATTERN))
         val lin = vb?.containerMm
         for (i in 0..23) {
             lin?.addView(CalendarView(requireContext()).apply { setting(String.format("%02d:00", i)) })
